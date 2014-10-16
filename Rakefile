@@ -32,4 +32,8 @@ RSpec::Core::RakeTask.new('spec:progress') do |spec|
   spec.pattern = "spec/**/*_spec.rb"
 end
 
+task :run_tests do
+  Dir.glob('examples/*_test.rb'){|file| load file }
+end
+
 task :default => :spec
